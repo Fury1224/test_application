@@ -5,6 +5,9 @@ class Cat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+            title: Text('제목')
+        ),
         body: Center(
           child: Text('This is Cat board'),
         )

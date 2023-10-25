@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-class Review extends StatelessWidget {
-  const Review({super.key});
+class Guide extends StatelessWidget {
+  const Guide({super.key});
+
+  // !!!!!!!!!!! guide.dart 파일에서는 body 만 사용한다 !!!!!!!
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class Review extends StatelessWidget {
             title: Text('제목')
         ),
         body: Center(
-          child: Text('This is Review board'),
+          child: Text('This is guide'),
         )
     );
   }

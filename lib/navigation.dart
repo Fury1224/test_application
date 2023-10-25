@@ -25,7 +25,7 @@ class _navigationState extends State<Navigation> {
             Icon(Icons.star),Icon(Icons.star),
           ],
           leading: Icon(Icons.star),
-          title: Text('제목')
+          title: Text('펫칭')
       ),
       body: Center(
         child: IndexedStack(
