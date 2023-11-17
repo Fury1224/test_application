@@ -7,15 +7,110 @@ import '/board/guide.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
-  void printhi() {
-    print("하이");
+  // 신청 현황 게시글 작성 함수
+  Container createBoard(double deviceWidth, double deviceHeight, String name, int imageNum, String address){
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 5, 5),
+      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+      height: deviceHeight*0.16, width:double.maxFinite,
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+            height: deviceHeight*0.1,
+            child: Row( // 윗컬럼 Row
+              children: [
+                Container(  // 프로필 사진, box 사이즈에 맞춰서 표시
+                  decoration: BoxDecoration(border: Border.all(color: Colors.blue),
+                      image: DecorationImage(image: AssetImage('assets/$imageNum.jpg'), fit: BoxFit.fill)),
+                  width: deviceWidth*0.215,
+                ),  // 프로필 사진, box 사이즈에 맞춰서 표시
+                Container(  // 이름, 주소
+                  decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                  width:deviceWidth*0.48,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(3),
+                        alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
+                        decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+                        height: deviceHeight*0.05,
+                        child: Text(name, style: TextStyle(fontSize:17),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0,3,0,0),
+                        padding: EdgeInsets.all(3),
+                        alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
+                        decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+                        height: deviceHeight*0.04,
+                        child: Text(address, style: TextStyle(fontSize:13),),
+                      ),
+                    ],
+                  ),
+                ),  // 이름, 주소
+                Container(  // 요금
+                  decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                  width: deviceWidth*0.265,
+                  child: Container(  // 요금
+                    //padding: EdgeInsets.all(10),
+                    alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
+                    decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+                    height: deviceHeight*0.05,
+                    child: Text('1시간\t: 10,000원\n  1박   : 50,000원', style: TextStyle(fontSize:14),),
+                  ),
+                ),  // 요금
+              ],
+            ),
+          ),  // 돌보미 정보
+          Container(  // 돌보미 정보, 수락, 거절
+            margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+            decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+            height: deviceHeight*0.05,
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0,0,5,0),
+                  alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
+                  decoration: BoxDecoration(border: Border.all(color: Colors.red), color: Colors.white38,),
+                  width: deviceWidth*0.63,
+                  child: Text('#여성 #21세 #1인가구 \n#반려동물있음', style: TextStyle(fontSize:13,)),),
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                  child: ElevatedButton(
+                    child: Text('수락'),
+                    onPressed: (){
+
+                    },
+                  ),
+                ),
+                Container(
+                  child: ElevatedButton(
+                    child: Text('거절'),
+                    onPressed: (){
+
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),  // 돌보미 소개 내용
+        ],
+      ),
+    );
   }
 
-  // !!!!!!!!!!! home.dart 파일에서는 body 만 사용한다 !!!!!!!
+
+
 
   @override
   Widget build(BuildContext context) {
-    double widget_size = 80.0;
+
+    // 현재 디바이스 크기
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double deviceHeight = MediaQuery.of(context).size.height;
+
+    double widget_size = deviceWidth * 0.2;
 
     return Scaffold(
       body: Container(
@@ -92,13 +187,13 @@ class Home extends StatelessWidget {
                   ),
                   Container(  // 돌봄 예약하기 버튼
                     //decoration: BoxDecoration(border: Border.all(color: Colors.blue), color:Colors.white),
-                    height: 100,
+                    height: deviceHeight*0.1,
                     child: Column(
                       children: [
                         Container(
                           decoration: BoxDecoration(border: Border.all(color: Colors.red), color:Colors.white),
                           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          height:70, width:double.maxFinite,
+                          height:deviceHeight*0.07, width:double.maxFinite,
                           child: ElevatedButton(
                             child: Text('돌봄 예약하기'), style: OutlinedButton.styleFrom(backgroundColor: Colors.red,),
                             onPressed: (){
@@ -117,147 +212,17 @@ class Home extends StatelessWidget {
             ),  // 위젯 부분
             Container(
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Text("<여러 후기들>")
-            ),  // 여러 후기들
-            Container(   // 리뷰 부분
-              height: 330,
+                child: Text("<신청 현황>")
+            ),
+            Container(   // 신청현황
+              margin: EdgeInsets.fromLTRB(5, 0, 0, 5),
+              height: deviceHeight*0.49,
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: <Widget>[
-                    Container(  // A 보호자님
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                      height: 80, width:double.maxFinite,
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Row(
-                              children: [
-                                Text("A 보호자님  "),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                              ],
-                            )
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Text("매달 일이 있어 부탁드리는데 항상 잘 케어해주십니다", overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
-                    ),  // A 보호자님
-                    Container(  // B 보호자님
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                      height: 80, width:double.maxFinite,
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Row(
-                              children: [
-                                Text("B 보호자님  "),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                                Icon(Icons.star, size:20),
-                              ],
-                             )
-                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Text("해외 여행 때문에 돌봄 서비스를 이용하게 되었는데 잘 돌봐주셨어요", overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
-                    ),  // B 보호자님
-                    Container(  // C 보호자님
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                      height: 80, width:double.maxFinite,
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                              child: Row(
-                                children: [
-                                  Text("C 보호자님  "),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                ],
-                              )
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Text("처음 돌봄 신청했는데 케어 정말 잘 해주시고 요청사항도 잘 들어주셨어요", overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
-                    ),  // C 보호자님
-                    Container(  // D 보호자님
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                      height: 80, width:double.maxFinite,
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                              child: Row(
-                                children: [
-                                  Text("D 보호자님  "),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                ],
-                              )
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Text("세 번째 돌봄 신청이네요 개인 사정으로 인해서 급하게 연락드렸는데 항상 잘 케어해주십니다", overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
-                    ),  // D 보호자님
-                    Container(  // E 보호자님
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                      height: 80, width:double.maxFinite,
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                              child: Row(
-                                children: [
-                                  Text("E 보호자님  "),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                  Icon(Icons.star, size:20),
-                                ],
-                              )
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            child: Text("연락도 잘 해주시고 잘 돌봐주셨어요", overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
-                    ),  // E 보호자님
+                    createBoard(deviceWidth, deviceHeight, '신청자 1', 1, '충남 아산시 신창면 순천향로 22'),
+                    createBoard(deviceWidth, deviceHeight, '신청자 2', 2, '충남 아산시 신창면 순천향로 22'),
                   ],
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/navigation.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   /*
   await Firebase.initializeApp(
