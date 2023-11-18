@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                         alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                         decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                         height: deviceHeight*0.05,
-                        child: Text(name, style: TextStyle(fontSize:17),),
+                        child: Text(name, style: TextStyle(fontSize:deviceWidth*0.045),),
                       ),
                       Container(
                         margin: EdgeInsets.fromLTRB(0,3,0,0),
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
                         alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                         decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                         height: deviceHeight*0.04,
-                        child: Text(address, style: TextStyle(fontSize:13),),
+                        child: Text(address, style: TextStyle(fontSize:deviceWidth*0.03),),
                       ),
                     ],
                   ),
@@ -57,7 +57,7 @@ class Home extends StatelessWidget {
                     alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                     decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                     height: deviceHeight*0.05,
-                    child: Text('1시간\t: 10,000원\n  1박   : 50,000원', style: TextStyle(fontSize:14),),
+                    child: Text('1시간\t: 10,000원\n  1박   : 50,000원', style: TextStyle(fontSize:deviceWidth*0.035),),
                   ),
                 ),  // 요금
               ],
@@ -74,7 +74,7 @@ class Home extends StatelessWidget {
                   alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                   decoration: BoxDecoration(border: Border.all(color: Colors.red), color: Colors.white38,),
                   width: deviceWidth*0.63,
-                  child: Text('#여성 #21세 #1인가구 \n#반려동물있음', style: TextStyle(fontSize:13,)),),
+                  child: Text('#여성 #21세 #1인가구 \n#반려동물있음', style: TextStyle(fontSize:deviceWidth*0.035,)),),
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
                   child: ElevatedButton(

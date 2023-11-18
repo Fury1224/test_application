@@ -140,7 +140,7 @@ class _CatState extends State<Cat> {
                           alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                           decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                           height: deviceHeight*0.05,
-                          child: Text(name, style: TextStyle(fontSize:17),),
+                          child: Text(name, style: TextStyle(fontSize:deviceWidth*0.045),),
                         ),
                         Container(
                           margin: EdgeInsets.fromLTRB(0,3,0,0),
@@ -148,7 +148,7 @@ class _CatState extends State<Cat> {
                           alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                           decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                           height: deviceHeight*0.04,
-                          child: Text(address, style: TextStyle(fontSize:12),),
+                          child: Text(address, style: TextStyle(fontSize:deviceWidth*0.03),),
                         ),
                       ],
                     ),
@@ -163,14 +163,14 @@ class _CatState extends State<Cat> {
                           alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                           decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                           height: deviceHeight*0.05,
-                          child: Text('1시간\t: 10,000원\n  1박   : 50,000원', style: TextStyle(fontSize:14),),
+                          child: Text('1시간\t: 10,000원\n  1박   : 50,000원', style: TextStyle(fontSize:deviceWidth*0.034),),
                         ),
                         Container(  // 돌보미 정보
                           margin: EdgeInsets.fromLTRB(0,3,0,0),
                           alignment: Alignment.centerLeft,  // 박스 왼쪽으로 붙이기
                           decoration: BoxDecoration(border: Border.all(color: Colors.red), color: Colors.white38,),
                           height: deviceHeight*0.04,
-                          child: Text('#여성 #21세 #1인가구 \n#반려동물있음', style: TextStyle(fontSize:11,)),
+                          child: Text('#여성 #21세 #1인가구 \n#반려동물있음', style: TextStyle(fontSize:deviceWidth*0.027,)),
                         ),
                       ],
                     ),
@@ -189,7 +189,7 @@ class _CatState extends State<Cat> {
                         '천안 아산 돌봄 가능 / 평일 주말 공휴일 오전 오후 가능합니다\n'
                         '어렸을 때 부터 반려견들과 함께 크면서 성인이 되면서까지도 함께 지내고 있습니다\n'
                         '저희 부모님만 봐도 잘 못놀러가시는 모습을 봐왔기 때문에 다른 보호자님들에게'
-                        ' 조금이나마 보탬이 되고싶어서 돌봄을 시작하게 되었습니다',style: TextStyle(fontSize:15, color: Colors.black),
+                        ' 조금이나마 보탬이 되고싶어서 돌봄을 시작하게 되었습니다',style: TextStyle(fontSize:deviceWidth*0.035, color: Colors.black),
                   ),
                   overflow: TextOverflow.ellipsis), // 글이 박스보다 길면 ... 처리
             ),  // 돌보미 소개 내용
