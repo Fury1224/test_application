@@ -218,7 +218,7 @@ class _CatState extends State<Cat> {
                       onPressed: () {
                         Navigator.of(context).pop();
                         },
-                      child: Text("닫기")
+                      child: Text("취소")
                   )   // 닫기 버튼
                 ]
             );
@@ -286,7 +286,7 @@ class _CatState extends State<Cat> {
                                     ElevatedButton(
                                       onPressed: (){
                                         setState((){
-                                          content_text = '수락';
+                                          // 매칭 신청을 넣으면 발생할 이벤트 함수 넣기
                                         });
                                       },
                                       child: Text('매칭 수락'),
