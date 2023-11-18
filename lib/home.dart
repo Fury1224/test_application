@@ -174,7 +174,7 @@ class Home extends StatelessWidget {
                         width:widget_size, height:widget_size,
                         child: ElevatedButton(
                           child: Text('이용 안내'),
-                          style:ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 11)),
+                          style:ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 12)),
                           onPressed: (){
                             Navigator.push(
                               context,
